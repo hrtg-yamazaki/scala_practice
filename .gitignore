@@ -1,0 +1,3 @@
+# コンパイル時などの自動生成ファイルの除外
+/code/projects/*
+/code/target/*

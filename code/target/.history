@@ -1,1 +1,7 @@
 run
+val testuser = new User("hrtg", 29)
+val testuser = new User("hrtg", 29);
+val testuser = new User("hrtg", 29)
+val user = new User("hrtg", 29)
+User.printUser(u)
+val u = new User("ymzk", 29)
