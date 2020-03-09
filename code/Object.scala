@@ -31,3 +31,22 @@ object Point2 {
   }
 }
 
+
+// コンパニオンオブジェクトによるprivateフィールドへのアクセス //
+
+class Vegitable(val name: String, private val price: Int)
+
+// 別名のオブジェクト構文ではprivateフィールドへアクセスできないが・・・
+// object Food {
+//   def printPrice(): Unit = {
+//     val eggplants = new Vegitable("eggplants", 198)
+//     println(eggplants.price)
+//   }
+// }
+// 以下のように同名ならばアクセス出来る
+object Vegitable {
+  def printPrice(): Unit = {
+    val eggplants = new Vegitable("eggplants", 198)
+    println(eggplants.price)
+  }
+}
