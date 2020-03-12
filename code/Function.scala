@@ -28,6 +28,35 @@ object FunctionTest{
     println(divide(400)(200))
   }
 
+  // 高階関数：関数を引数にとったり、返り値に関数を返す「関数」や「メソッド」
+
+  def printTriple(): Unit = {
+    def triple(n: Int, f: Int => Int): Int = {
+      f(f(f(n)))
+    }
+    println(triple(1, m => m * 2))
+  }
+
+  // 高階関数の仕組みを利用すれば、複数の処理をそれぞれ部品化して例外が起きた場合でも事後処理を可能にできる(ローンパターン)
+
+  def printAround(): Unit = {
+    
+    def around(init: () => Unit, body: () => Any, fin: () => Unit): Any = {
+      init()
+      try {
+        body()
+      } finally {
+        fin()
+      }
+    }
+    around(
+      () => println("Hello, "),
+      () => throw new Exception("Excepted!"),
+      () => println("Hello Scala!")
+    )
+
+  }
+
+  // ローンパターンの練習問題はREPLで試してみる！
+
 }
-
-
